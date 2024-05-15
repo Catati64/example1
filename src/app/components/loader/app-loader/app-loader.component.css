@@ -1,0 +1,16 @@
+mat-spinner {
+    color: #ff0000;
+    /* Color del spinner blanco */
+    width: 100px;
+    /* Ancho del spinner */
+    height: 100px;
+    /* Alto del spinner */
+    position: fixed;
+    /* Posicionamiento fijo */
+    top: 50%;
+    /* Centrado verticalmente */
+    left: 50%;
+    /* Centrado horizontalmente */
+    transform: translate(-50%, -50%);
+    /* Ajuste para centrar perfectamente el spinner */
+}

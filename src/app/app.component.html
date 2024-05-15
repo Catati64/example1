@@ -1,35 +1,39 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<style>
+
+</style>
+
+<!-- el contorno del loader se ve, el observador funciona con los 5 seg, pero no he podido hacer que el spinning se muestre, idkw-->
+<app-app-loader></app-app-loader>
+
+<div [ngClass]=" loader ? 'cargando' : ''">
+  <mat-grid-tile-header cols="2" rowHeight="2:2"> <app-header></app-header> </mat-grid-tile-header>
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile style="background-color: aqua;"><app-banner-left></app-banner-left></mat-grid-tile> <!-- INTERPOLATION -->
+    <mat-grid-tile style="background-color:chocolate;"><app-banner-right></app-banner-right></mat-grid-tile>
+  </mat-grid-list>
+  <app-body></app-body>
 
 
-<main class="main">
-  <div class="content">
-    <app-header></app-header>
-    <app-banner-left></app-banner-left>
-    <app-banner-right></app-banner-right>
-    <app-body></app-body>
-    <app-footer></app-footer>
+  <ul>
+    <li *ngFor="let variable of valores">{{variable.name}}</li>
+  </ul>
+  <button mat-button (click)="funcionejemplo()">Detonar</button>
+  <button mat-button *ngIf="false" (click)="funcionejemplo()">Salvar</button>
+
+  <div style="text-align: center;">
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+    <label for="name">Name</label>
+    <input type="text" id="name" formControlName="name">
+    <label for="url">Url</label>
+    <input type="text" id="url" formControlName="url">
+    <label for="email">Email</label>
+    <input type="email" id="email" formControlName="email">
+
+    <button mat-raised-button type="submit"> Agregar </button>
+  </form>
   </div>
-</main>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<div style="text-align: center;">
-  <button  [routerLink]="['/first-component']" > Primer componente </button>
-  <button  [routerLink]="['/error']" > Segundo componente </button>
+  <mat-grid-tile-footer cols="2" rowHeight="2:2">
+    <app-footer></app-footer>
+  </mat-grid-tile-footer>
 </div>
-
 <router-outlet><router-outlet />
-
